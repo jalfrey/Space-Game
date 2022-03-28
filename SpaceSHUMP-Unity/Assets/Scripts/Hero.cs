@@ -111,8 +111,26 @@ public class Hero : MonoBehaviour
     //Taking Damage
     private void OnTriggerEnter(Collider other)
     {
-  
+        // The transform root returns the topmost root in the hierarchy
+        Transform rootT = other.gameObject.transform.root;
+        Debug.Log("Triggered " + other.gameObject.name);
+        GameObject obj = rootT.gameObject;
 
+        if (obj == lastTriggerGo)
+            return;
+
+        // Set the trigger to the last trigger
+        lastTriggerGo = obj;
+        if (obj.tag == "Enemy")
+        {
+            Debug.Log("Triggered by Enemey " + other.gameObject.name);
+            shieldLevel--;
+            Destroy(obj);
+        }
+        else
+        {
+            Debug.Log("Triggered by non-Enemy " + other.gameObject.name);
+        }
 
     }//end OnTriggerEnter()
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777786191411590755}
   - component: {fileID: 777786191411590780}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: idle_player_basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 777786193082681701}
   - component: {fileID: 480363558099709218}
   m_Layer: 7
-  m_Name: Enemy-0
+  m_Name: Enemy-2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.056943756, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
