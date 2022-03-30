@@ -3,7 +3,7 @@
  * Date Created: March 21, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 21, 2022
+ * Last Edited: March 30, 2022
  * 
  * Description: Hero ship controller
 ****/
@@ -17,10 +17,9 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     /*** VARIABLES ***/
-
     #region PlayerShip Singleton
     static public Hero SHIP; //refence GameManager
-   
+
     //Check to make sure only one gm of the GameManager is in the scene
     void CheckSHIPIsInScene()
     {
@@ -43,7 +42,8 @@ public class Hero : MonoBehaviour
     public float speed = 10;
     public float rollMult = -45;
     public float pitchMult = 30;
-
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 40;
 
 
     [Space(10)]
@@ -105,6 +105,11 @@ public class Hero : MonoBehaviour
         // Rotate the ship to create a dynamic feel
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TempFire();
+        }
+
     }//end Update()
 
 
@@ -134,4 +139,16 @@ public class Hero : MonoBehaviour
 
     }//end OnTriggerEnter()
 
+    void TempFire()
+    {
+        GameObject projGO = Instantiate<GameObject>(projectilePrefab);
+        projGO.transform.position = transform.position;
+        Rigidbody rb = projGO.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.up * projectileSpeed;
+    }
+
+    public void AddScore(int value)
+    {
+        gm.UpdateScore(value);
+    }
 }
