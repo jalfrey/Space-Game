@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: 21300004
     second: BulletsSpriteSheetBlue_2
+  - first:
+      213: 3733162928060285949
+    second: BulletsSpriteSheetBlue_0
+  - first:
+      213: 9147139359537091873
+    second: BulletsSpriteSheetBlue_1
+  - first:
+      213: 5113576085928003912
+    second: BulletsSpriteSheetBlue_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,10 +109,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: df3c0b767ebdec330800000000000000
+      internalID: 3733162928060285949
       vertices: []
       indices: 
       edges: []
@@ -121,10 +130,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: 125d33ca8ca21fe70800000000000000
+      internalID: 9147139359537091873
       vertices: []
       indices: 
       edges: []
@@ -142,10 +151,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
+      spriteID: 849cba57b5217f640800000000000000
+      internalID: 5113576085928003912
       vertices: []
       indices: 
       edges: []
@@ -153,7 +162,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2c05e6a9cd6c35e44bf730c96560b05d
     internalID: 0
     vertices: []
     indices: 

@@ -3,7 +3,7 @@
  * Date Created: March 30, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 30, 2022
+ * Last Edited: April 6, 2022
  * 
  * Description: Projectile behaviors.
 ****/
@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
     //Variables 
     private BoundsCheck bndCheck;
 
+
     void Awake()
     {
         bndCheck = GetComponent<BoundsCheck>();
@@ -27,6 +28,8 @@ public class Projectile : MonoBehaviour
     {
         if(bndCheck.offUp)
         {
+            gameObject.SetActive(false);
+            bndCheck.offUp = false; // Reset the boundary settings
             Destroy(gameObject);
         }
     }

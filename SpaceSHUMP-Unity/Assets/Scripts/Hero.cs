@@ -37,14 +37,16 @@ public class Hero : MonoBehaviour
     #endregion
 
     GameManager gm; //reference to game manager
+    ObjectPool pool; // reference to pool
 
     [Header("Ship Movement")]
     public float speed = 10;
     public float rollMult = -45;
     public float pitchMult = 30;
+    
+    [Header("Projectile Settings")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 40;
-
 
     [Space(10)]
 
@@ -86,6 +88,7 @@ public class Hero : MonoBehaviour
     private void Start()
     {
         gm = GameManager.GM; //find the game manager
+        pool = ObjectPool.POOL;
     }//end Start()
 
         // Update is called once per frame (page 551)
@@ -141,10 +144,15 @@ public class Hero : MonoBehaviour
 
     void TempFire()
     {
-        GameObject projGO = Instantiate<GameObject>(projectilePrefab);
-        projGO.transform.position = transform.position;
-        Rigidbody rb = projGO.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.up * projectileSpeed;
+        GameObject projGO = pool.GetObject();
+
+        if(projGO != null)
+        {
+            projGO = Instantiate<GameObject>(projectilePrefab);
+            projGO.transform.position = transform.position;
+            Rigidbody rb = projGO.GetComponent<Rigidbody>();
+            rb.velocity = Vector3.up * projectileSpeed;
+        }
     }
 
     public void AddScore(int value)
