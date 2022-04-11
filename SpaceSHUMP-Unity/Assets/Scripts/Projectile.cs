@@ -30,7 +30,6 @@ public class Projectile : MonoBehaviour
         {
             gameObject.SetActive(false);
             bndCheck.offUp = false; // Reset the boundary settings
-            Destroy(gameObject);
         }
     }
 }
