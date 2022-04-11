@@ -3,7 +3,7 @@
  * Date Created: March 21, 2022
  * 
  * Last Edited by: NA
- * Last Edited: March 30, 2022
+ * Last Edited: April 11, 2022
  * 
  * Description: Hero ship controller
 ****/
@@ -19,11 +19,12 @@ public class Hero : MonoBehaviour
     /*** VARIABLES ***/
     #region PlayerShip Singleton
     static public Hero SHIP; //refence GameManager
+    public AudioClip projectileSound; 
+    AudioSource audioSource;
 
     //Check to make sure only one gm of the GameManager is in the scene
     void CheckSHIPIsInScene()
     {
-
         //Check if instnace is null
         if (SHIP == null)
         {
@@ -89,10 +90,11 @@ public class Hero : MonoBehaviour
     {
         gm = GameManager.GM; //find the game manager
         pool = ObjectPool.POOL;
+        audioSource = GetComponent<AudioSource>();
     }//end Start()
 
-        // Update is called once per frame (page 551)
-        void Update()
+    // Update is called once per frame (page 551)
+    void Update()
     {
         // player input
         float xAxis = Input.GetAxis("Horizontal");
@@ -148,6 +150,9 @@ public class Hero : MonoBehaviour
 
         if(projGO != null)
         {
+            if (audioSource != null && projectileSound != null)
+                audioSource.PlayOneShot(projectileSound);
+
             projGO = Instantiate<GameObject>(projectilePrefab);
             projGO.transform.position = transform.position;
             Rigidbody rb = projGO.GetComponent<Rigidbody>();
